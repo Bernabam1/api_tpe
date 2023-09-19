@@ -2,8 +2,8 @@
 
 ## Integrantes:
 
-- de Haro, Fabián
-- Michelli, Bernardo Agustín
+- de Haro, Fabián (fa07fa@gmail.com)
+- Michelli, Bernardo Agustín (bernabam@gmail.com)
 
 ## Temática:
 
