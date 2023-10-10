@@ -2,10 +2,10 @@
 
 ## Integrantes:
 
-- De Haro, Fabián
-- Michelli, Bernardo Agustín
+- de Haro, Fabián (fa07fa@gmail.com)
+- Michelli, Bernardo Agustín (bernabam@gmail.com)
 
 ## Temática:
 
-Página de tipo showroom/comercial para productos para deportes. 
+Página de tipo showroom/comercial para productos de deportes. 
 Muestra disponibilidad y precios de los diferentes productos, organizados por categorías, en relación a los deportes con los que se corresponden.
