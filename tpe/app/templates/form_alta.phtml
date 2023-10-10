@@ -1,0 +1,47 @@
+<!-- formulario de alta de tarea -->
+<form action="agregar" method="POST" class="my-4"> <!-- method POST para cuidar el pasaje de información -->
+    <div class="row">
+        <div class="col-8">
+            <div class="form-group">
+                <label>Nombre</label>
+                <input required name="nombre" type="text" class="form-control">
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="form-group">
+                <label>Categoría</label>
+                <select required name="categoria" class="form-control"> <!-- Como soluciono el tema values con la FK -->
+                    <option value="100">100 - Fútbol</option>
+                    <option value="101">101 - Básquet</option>
+                    <option value="102">102 - Voley</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Precio</label>
+                <input required name="precio" type="number" class="form-control">
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="form-group">
+                <label>Stock</label>
+                <input required name="stock" type="number" class="form-control">
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="form-group">
+                <label>Directorio Imagen</label>
+                <input required name="img" type="text" class="form-control">
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Guardar</button>
+</form>

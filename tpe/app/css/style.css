@@ -1,0 +1,5 @@
+.producto-acciones{ /*Esta clase no agarra el estilo*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
