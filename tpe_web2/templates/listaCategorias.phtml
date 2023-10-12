@@ -1,0 +1,19 @@
+<?php require 'templates/header.phtml' ?>
+
+<?php require 'templates/form_alta_categoria.phtml' ?>
+
+<ul class="list-group">
+<?php foreach($categorias as $categoria){ ?>
+    <li class="list-group-item producto-acciones">
+        <div>
+        <?php echo $categoria->nombre ?> | $<?php echo $categoria->descripcion ?></li> <!--como cambio esto -->
+        </div>
+        <div class="actions">
+            <a href="eliminar/<?php echo $categoria->id_categoria ?>" type = "button" class="btn btn-danger ml-auto">Eliminar</a>
+        </div>
+    </li>
+<?php } ?>
+</ul>
+
+
+<?php require 'templates/footer.phtml' ?>

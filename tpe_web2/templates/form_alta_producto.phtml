@@ -1,0 +1,52 @@
+
+<form action="agregar" method="POST" class="my-4"> <!-- method POST para cuidar el pasaje de información -->
+    <div class="row">
+        <div class="col-8">
+            <div class="form-group">
+                <label>Nombre</label>
+                <input required name="nombre" type="text" class="form-control" value="<?php echo $producto->nombre; ?>">
+            </div>
+        </div>
+    
+        <div class="col-4">
+            <div class="form-group">
+                <label>Categoría</label>
+                <select required name="categoria" class="form-control">
+                
+                <?php foreach($categorias as $categoria){ ?> <!-- Autocompleto con la seleccionada -->
+                        <option
+                            value="<?php echo $categoria->id_categoria ?>">
+                            <?php echo $categoria->id_categoria ?> - <?php echo $categoria->nombre ?>
+                        </option>
+                <?php } ?>
+                
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Precio</label>
+                <input required name="precio" type="number" class="form-control">
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="form-group">
+                <label>Stock</label>
+                <input required name="stock" type="number" class="form-control">
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="form-group">
+                <label>Directorio Imagen</label>
+                <input required name="img" type="text" class="form-control">
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Guardar</button>
+</form>
