@@ -6,11 +6,11 @@
 <?php foreach($productos as $producto){ ?>
     <li class="list-group-item producto-acciones">
         <div>
-        <?php echo $producto->nombre ?> | $<?php echo $producto->precio ?></li> <!--como cambio esto -->
+        <?php echo $producto->nombre ?> | $<?php echo $producto->precio ?></li>
         </div>
         <div class="actions">
-            <a href="modificar/<?php echo $producto->id_producto ?>?nombre=<?php echo $producto->nombre ?>&?id_categoria=<?php echo $producto->id_categoria ?>" type = "button" class="btn btn-success ml-auto">Modificar</a>
-            <a href="eliminar/<?php echo $producto->id_producto ?>" type = "button" class="btn btn-danger ml-auto">Eliminar</a>
+            <a href="modificarProducto/<?php echo $producto->id_producto ?>" type = "button" class="btn btn-success ml-auto">Modificar</a>
+            <a href="eliminarProducto/<?php echo $producto->id_producto ?>" type = "button" class="btn btn-danger ml-auto">Eliminar</a>
         </div>
     </li>
 <?php } ?>

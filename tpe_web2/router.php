@@ -31,24 +31,35 @@ switch ($params[0]) {
     case 'productos':
         $controller = new ProductoController();
         $controller -> showProductos();
-        break;   
-    case 'agregar':
+        break;
+    case 'agregarProducto':
         $controller = new ProductoController();
         $controller -> addProducto();
-        break;    
-    case 'eliminar':
+        break;
+    case 'eliminarProducto':
         $controller = new ProductoController();
         $controller -> removeProducto($params[1]); // Del explode trae el ID
         break;
-    case 'modificar':
+    case 'modificarProducto':
         $controller = new ProductoController();
         $controller -> modificarProducto($params[1]); // El param en la pos 1 es el id del producto
-        break;  
+        break;
     case 'categorias':
         $controller = new CategoriaController();
         $controller -> showCategorias();
-        break; 
-    // Como hago el eliminar para categorias??    
+        break;
+    case 'agregarCategoria':
+        $controller = new CategoriaController();
+        $controller -> addCategoria();
+        break;
+    case 'eliminarCategoria':
+        $controller = new CategoriaController();
+        $controller -> removeCategoria($params[1]);
+        break;
+    case 'modificarCategoria':
+        $controller = new CategoriaController();
+        $controller -> modificarCategoria($params[1]);
+        break;
     case 'about':
         $controller = new AboutController();
         $controller->showAbout();

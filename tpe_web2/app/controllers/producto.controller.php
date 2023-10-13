@@ -39,7 +39,7 @@ class ProductoController {
         $id = $this->model->insertProducto($nombre, $categoria, $precio, $stock, $img);
 
         if ($id){ // Si es cero se va por el false -- ESTE CHEQUEO NO ANDA, NO VA NUNCA AL ELSE
-            header('Location: ' . BASE_URL); // Esto hace redireccion a la BASE_URL q esta como constante apuntando al home
+            header('Location: ' . BASE_URL . 'productos'); // Esto hace redireccion a la BASE_URL q esta como constante apuntando al home
         } else {
             echo "Error al ingresar el producto"; // ojo con esto, lo tengo q cambiar
         }
@@ -47,7 +47,7 @@ class ProductoController {
 
     public function removeProducto($id){
         $this->model->deleteProducto($id);
-        header('Location: ' . BASE_URL);
+        header('Location: ' . BASE_URL . 'productos');
     }
 
     public function modificarProducto($id){
@@ -65,7 +65,7 @@ class ProductoController {
             $img = $_POST['img'];
 
             $this->model->updateProducto($id, $nombre, $id_categoria, $precio, $stock, $img);
-            //header('Location: ' . BASE_URL); No puedo volver a la pagina porque esto rompe. Modifica bien pero rompe esto
+            //header('Location: ' . BASE_URL . 'productos');
         }
     }
 }

@@ -1,0 +1,32 @@
+
+<?php require_once 'templates/header.phtml'; ?>
+
+<form action="modificarCategoria/<?php echo $categoria->id_categoria; ?>" method="POST" class="my-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label>Nombre</label>
+                <input required name="nombre" type="text" class="form-control" value="<?php echo $categoria->nombre ?>">
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="form-group">
+                <label>Directorio Imagen</label>
+                <input required name="img" type="text" class="form-control" value="<?php echo $categoria->imagen ?>">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group">
+            <label>Descripcion</label>
+            <textarea name="descripcion" class="form-control" rows="3"><?php echo $categoria->descripcion ?></textarea>
+        </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary mt-2">Modificar</button>
+</form>
+
+<?php require_once 'templates/footer.phtml'; ?>

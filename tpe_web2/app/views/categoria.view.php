@@ -12,4 +12,8 @@ class CategoriaView {
     public function showError($error) {
         require 'templates/error.phtml';
     }
+
+    public function showModificarCategoria($categoria){
+        require 'templates/form_modificar_categoria.phtml';
+    }
 }

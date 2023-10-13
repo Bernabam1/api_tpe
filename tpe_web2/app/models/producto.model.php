@@ -32,8 +32,6 @@ class ProductoModel {
 
     function insertProducto($nombre, $categoria, $precio, $stock, $img){
 
-        
-    
         $query = $this->db->prepare('INSERT INTO producto (nombre, id_categoria, precio, stock, imagen) VALUES(?,?,?,?,?)'); // No va id_producto (lo carga autoincremental) - Van los ? para prevenir inyeccion SQL
         $query->execute([$nombre, $categoria, $precio, $stock, $img]);
     
@@ -42,7 +40,7 @@ class ProductoModel {
     
     function deleteProducto($id){
            
-        $query = $this->db->prepare('DELETE FROM producto WHERE producto.id_producto = ?');
+        $query = $this->db->prepare('DELETE FROM producto WHERE id_producto = ?');
         $query->execute([$id]);
     }
     

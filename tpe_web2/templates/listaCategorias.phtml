@@ -6,10 +6,11 @@
 <?php foreach($categorias as $categoria){ ?>
     <li class="list-group-item producto-acciones">
         <div>
-        <?php echo $categoria->nombre ?> | $<?php echo $categoria->descripcion ?></li> <!--como cambio esto -->
+        <?php echo $categoria->nombre ?> | <?php echo $categoria->descripcion ?></li>
         </div>
         <div class="actions">
-            <a href="eliminar/<?php echo $categoria->id_categoria ?>" type = "button" class="btn btn-danger ml-auto">Eliminar</a>
+            <a href="modificarCategoria/<?php echo $categoria->id_categoria ?>" type = "button" class="btn btn-success ml-auto">Modificar</a>
+            <a href="eliminarCategoria/<?php echo $categoria->id_categoria ?>" type = "button" class="btn btn-danger ml-auto">Eliminar</a>
         </div>
     </li>
 <?php } ?>

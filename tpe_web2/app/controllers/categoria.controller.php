@@ -27,14 +27,14 @@ class CategoriaController {
         // Agarro lo que viene del form y lo guardo en variables
         $nombre = $_POST['nombre'];
         $descripcion = $_POST['descripcion'];
-        $imagen = $_POST['imagen'];
+        $imagen = $_POST['img'];
         
         // Inserto
 
         $id = $this->model->insertCategoria($nombre, $descripcion, $imagen);
 
-        if ($id){ // Si es cero se va por el false -- ESTE CHEQUEO NO ANDA, NO VA NUNCA AL ELSE
-            header('Location: ' . BASE_URL); // Esto hace redireccion a la BASE_URL q esta como constante apuntando al home
+        if ($id){ // Si es cero se va por el false
+            header('Location: ' . BASE_URL . 'categorias'); // Esto hace redireccion a la BASE_URL q esta como constante apuntando al home
         } else {
             echo "Error al ingresar el producto"; // ojo con esto, lo tengo q cambiar
         }
@@ -42,7 +42,23 @@ class CategoriaController {
 
     public function removeCategoria($id){
         $this->model->deleteCategoria($id);
-        header('Location: ' . BASE_URL);
+        header('Location: ' . BASE_URL . 'categorias');
+    }
+
+    public function modificarCategoria($id){
+
+        $categoria = $this->model->getCategoriaById($id); // Me quedo con EL objeto
+
+        $this->view->showModificarCategoria($categoria);
+
+        if(isset($_POST['nombre'])) {
+            $nombre = $_POST['nombre'];
+            $descripcion = $_POST['descripcion'];
+            $img = $_POST['img'];
+
+            $this->model->updateCategoria($id, $nombre, $descripcion, $img);
+            //header('Location: ' . BASE_URL); No puedo volver a la pagina porque esto rompe. Modifica bien pero rompe esto
+        }
     }
 
 }
