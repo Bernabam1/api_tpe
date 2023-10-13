@@ -27,6 +27,8 @@ class AuthController {
 
         // busco el usuario
         $user = $this->model->getByUsername($username);
+        var_dump($user); // esto esta viniendo bien
+
         if ($user && password_verify($password, $user->password)) {
             // ACA LO AUTENTIQUE
             
