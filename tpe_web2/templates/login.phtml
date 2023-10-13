@@ -1,10 +1,10 @@
 <?php require 'templates/header.phtml' ?>
 
 <div class="mt-5 w-25 mx-auto">
-    <form method="POST" action="auth">
+    <form action="auth" method="POST">
         <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" required class="form-control" id="email" name="email" aria-describedby="emailHelp">
+            <label for="username">Nombre de Usuario</label>
+            <input type="text" required class="form-control" id="username" name="username">
         </div>
         <div class="form-group">
             <label for="password">Password</label>
@@ -17,7 +17,7 @@
             </div> 
         <?php endif ?>
        
-        <button type="submit" class="btn btn-primary mt-3">Entrar</button>
+        <button type="submit" class="btn btn-primary mt-3">Iniciar Sesión</button>
     </form>
 </div>
 

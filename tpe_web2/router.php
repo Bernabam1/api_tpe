@@ -77,7 +77,6 @@ switch ($params[0]) {
         $controller->logout();
         break;
     default: 
-        // esto lo tengo q cambiar
         echo "404 Page Not Found";
         break;
 }

@@ -11,12 +11,18 @@ class AuthHelper {
     public static function login($user) {
         AuthHelper::init();
         $_SESSION['USER_ID'] = $user->id;
-        $_SESSION['USER_EMAIL'] = $user->email; 
+        $_SESSION['USER_NAME'] = $user->username; 
+    }
+
+    public static function isAdmin(){
+        return !empty($_SESSION['id_usuario']);
     }
 
     public static function logout() {
         AuthHelper::init();
         session_destroy();
+        header('Location: ' . BASE_URL);
+        die();
     }
 
     public static function verify() {
