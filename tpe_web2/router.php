@@ -42,7 +42,7 @@ switch ($params[0]) {
         break;
     case 'modificar':
         $controller = new ProductoController();
-        $controller -> modificarProducto($params[1]);
+        $controller -> modificarProducto($params[1]); // El param en la pos 1 es el id del producto
         break;  
     case 'categorias':
         $controller = new CategoriaController();

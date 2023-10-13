@@ -24,9 +24,9 @@ class ProductoModel {
         $query->execute([$id]);
 
         // 3. Obtener los datos para procesarlos
-        $producto = $query->fetchAll(PDO::FETCH_OBJ); // Devuelve un arreglo con todos los productos (para uno especifico uso un fetch q devuelve un solo registro)
+        $producto = $query->fetch(PDO::FETCH_OBJ); // Devuelve un arreglo con todos los productos (para uno especifico uso un fetch q devuelve un solo registro)
 
-        return $producto; 
+        return $producto;
     }
 
 

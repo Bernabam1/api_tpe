@@ -25,7 +25,7 @@ class ProductoController {
     }
 
     public function addProducto(){
-         // Falta validacion
+        // Falta validacion
 
         // Agarro lo que viene del form y lo guardo en variables
         $nombre = $_POST['nombre'];
@@ -52,21 +52,10 @@ class ProductoController {
 
     public function modificarProducto($id){
 
-        $producto = $this->model->getProductoById($id)[0]; // Me quedo con EL objeto
-
+        $producto = $this->model->getProductoById($id); // Me quedo con EL objeto
         $categorias = $this->catModel->getCategorias();
 
-        //$_POST['nombre'] = $producto->nombre;
-
-        //$categoria = $producto->id_categoria;
-        //$precio = $producto->precio;
-        //$stock = $producto->stock;
-        //$img = $producto->imagen;
-        
-
-        $this->view->showProductos([], $categorias);
-
-        //Tendria que poder setear dinamicamente el action del formulario a modificar
+        $this->view->showModificarProducto($producto, $categorias);
 
         if(isset($_POST['nombre'])) {
             $nombre = $_POST['nombre'];
@@ -75,8 +64,8 @@ class ProductoController {
             $stock = $_POST['stock'];
             $img = $_POST['img'];
 
-            $id = $this->model->updateProducto($id, $nombre, $id_categoria, $precio, $stock, $img);
-            header('Location: ' . '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT']);
+            $this->model->updateProducto($id, $nombre, $id_categoria, $precio, $stock, $img);
+            //header('Location: ' . BASE_URL); No puedo volver a la pagina porque esto rompe. Modifica bien pero rompe esto
         }
     }
 }
