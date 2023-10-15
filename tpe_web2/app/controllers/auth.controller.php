@@ -24,7 +24,7 @@ class AuthController {
         $password = $_POST['password'];
 
         if (empty($username) || empty($password)) {
-            $this->view->showLogin('Faltan completar datos');
+            $this->view->showLogin('Faltan completar datos',$isAdmin);
             return;
         }
 
@@ -38,7 +38,7 @@ class AuthController {
             
             header('Location: ' . BASE_URL);
         } else {
-            $this->view->showLogin('Usuario o contraseña incorrectos', $isAdmin); // y aca como le paso el is admin?
+            $this->view->showLogin('Usuario o contraseña incorrectos', $isAdmin);
         }
     }
 
