@@ -19,6 +19,7 @@ class AuthController {
     }
 
     public function auth() {
+        $isAdmin = AuthHelper::isAdmin();
         $username = $_POST['username'];
         $password = $_POST['password'];
 
@@ -29,7 +30,6 @@ class AuthController {
 
         // busco el usuario
         $user = $this->model->getByUsername($username);
-        var_dump($user); // esto esta viniendo bien
 
         if ($user && password_verify($password, $user->password)) {
             // ACA LO AUTENTIQUE
@@ -38,7 +38,7 @@ class AuthController {
             
             header('Location: ' . BASE_URL);
         } else {
-            $this->view->showLogin('Usuario inválido');
+            $this->view->showLogin('Usuario o contraseña incorrectos', $isAdmin); // y aca como le paso el is admin?
         }
     }
 

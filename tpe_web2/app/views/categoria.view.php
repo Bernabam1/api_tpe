@@ -2,14 +2,10 @@
 
 class CategoriaView {
     public function showCategorias($categorias, $isAdmin) {
-        
-        // NOTA: el template va a poder acceder a todas las variables y constantes que tienen alcance en esta funcion
-
-        // mostrar el template
         require 'templates/listaCategorias.phtml';
     }
 
-    public function showError($error) {
+    public function showError($error, $isAdmin) {
         require 'templates/error.phtml';
     }
 

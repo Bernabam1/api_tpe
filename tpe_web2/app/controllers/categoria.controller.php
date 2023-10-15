@@ -56,7 +56,7 @@ class CategoriaController {
     }
 
     public function removeCategoria($id){
-
+        
         $isAdmin = AuthHelper::isAdmin();
 
         $tieneProductos = $this->model->deleteCategoria($id);
