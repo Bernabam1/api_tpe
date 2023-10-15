@@ -30,10 +30,13 @@ class CategoriaController {
         $isAdmin = AuthHelper::isAdmin();
 
         $categoria = $this->model->getCategoriaById($id);
-        $productos = $this->prodModel->getProductos();
+        $productos = $this->prodModel->getProductos(); // Acá capaz q va un getProductosPorCategoría?
 
-        $this->view->showCategoria($id, $categoria, $productos, $isAdmin);
-
+        if (empty($productos)){ // Tengo que chequear otra cosa, esto viene con datos
+            $this->view->showError('No hay productos en esta categoría', $isAdmin);
+        } else{
+            $this->view->showCategoria($id, $categoria, $productos, $isAdmin);
+        }
     }
 
     public function addCategoria(){
