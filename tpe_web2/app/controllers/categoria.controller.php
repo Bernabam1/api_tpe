@@ -37,6 +37,7 @@ class CategoriaController {
     }
 
     public function addCategoria(){
+        $isAdmin = AuthHelper::isAdmin();
 
         // Agarro lo que viene del form y lo guardo en variables
         $nombre = $_POST['nombre'];
@@ -50,13 +51,22 @@ class CategoriaController {
         if ($id){ // Si es cero se va por el false
             header('Location: ' . BASE_URL . 'categorias'); // Esto hace redireccion a la BASE_URL q esta como constante apuntando al home
         } else {
-            echo "Error al ingresar el producto"; // ojo con esto, lo tengo q cambiar
+            $this->view->showError('Error al ingresar el producto', $isAdmin);
         }
     }
 
     public function removeCategoria($id){
-        $this->model->deleteCategoria($id);
-        header('Location: ' . BASE_URL . 'categorias');
+
+        $isAdmin = AuthHelper::isAdmin();
+
+        $tieneProductos = $this->model->deleteCategoria($id);
+
+        if ($tieneProductos === 1) {
+            $this->view->showError('La categoría tiene productos, eliminelos antes de eliminarla', $isAdmin);
+        } else {
+            header('Location: ' . BASE_URL . 'categorias');
+        }
+        
     }
 
     public function modificarCategoria($id){

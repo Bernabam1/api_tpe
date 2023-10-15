@@ -48,7 +48,7 @@ class CategoriaModel {
         $queryProductos = $queryProducto->fetchAll(PDO::FETCH_OBJ);
 
         if(sizeof($queryProductos)>0){
-            echo "Aca debe ir un show error de: No se puede eliminar una categoria en uso";
+            return 1;
         } else{
             $query = $this->db->prepare('DELETE FROM categorias WHERE id_categoria = ?');
             $query->execute([$id]);

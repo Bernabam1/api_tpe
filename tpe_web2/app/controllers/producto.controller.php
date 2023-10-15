@@ -52,7 +52,7 @@ class ProductoController {
         if ($id){ // Si es cero se va por el false
             header('Location: ' . BASE_URL . 'productos'); // Esto hace redireccion a la BASE_URL q esta como constante apuntando al home
         } else {
-            echo "Error al ingresar el producto"; // ojo con esto, lo tengo q cambiar
+            $this->view->showError('Error al ingresar el producto');
         }
     }
 
