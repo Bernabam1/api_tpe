@@ -1,6 +1,8 @@
 <?php require 'templates/header.phtml' ?>
 
-<?php require 'templates/form_alta_categoria.phtml' ?>
+<?php if ($isAdmin)
+    require 'templates/form_alta_categoria.phtml';
+?>
 
 <ul class="list-group">
 <?php foreach($categorias as $categoria){ ?>
@@ -8,10 +10,16 @@
         <div>
         <?php echo $categoria->nombre ?> | <?php echo $categoria->descripcion ?></li>
         </div>
+
         <div class="actions">
+        <?php if ($isAdmin) { ?>
             <a href="modificarCategoria/<?php echo $categoria->id_categoria ?>" type = "button" class="btn btn-success ml-auto">Modificar</a>
             <a href="eliminarCategoria/<?php echo $categoria->id_categoria ?>" type = "button" class="btn btn-danger ml-auto">Eliminar</a>
+            <?php } else { ?>
+                <a href="verCategoria/<?php echo $categoria->id_categoria ?>" type = "button" class="btn btn-success ml-auto">Ver Productos</a>
+            <?php } ?>
         </div>
+
     </li>
 <?php } ?>
 </ul>

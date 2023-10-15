@@ -17,12 +17,23 @@ class ProductoController {
     public function showProductos(){
         //le pido los productos al controller
 
+        $isAdmin = AuthHelper::isAdmin();
+
         $productos = $this->model->getProductos();
 
         $categorias = $this->catModel->getCategorias();
 
-        $this->view->showProductos($productos, $categorias);
+        $this->view->showProductos($productos, $categorias, $isAdmin);
     }
+
+    public function verProducto($id){
+
+        $isAdmin = AuthHelper::isAdmin();
+
+        $producto = $this->model->getProductoById($id);
+        $this->view->showProducto($producto, $isAdmin);
+    }
+
 
     public function addProducto(){
         // Falta validacion
@@ -52,15 +63,13 @@ class ProductoController {
 
     public function modificarProducto($id){
 
+        $isAdmin = AuthHelper::isAdmin();
+
         $producto = $this->model->getProductoById($id); // Me quedo con EL objeto
         $categorias = $this->catModel->getCategorias();
 
-        $this->view->showModificarProducto($producto, $categorias);
+        $this->view->showModificarProducto($producto, $categorias, $isAdmin);
 
-       $hashed_password = password_hash('admin', PASSWORD_DEFAULT);
-
-       var_dump($hashed_password);
-       
         if(isset($_POST['nombre'])) {
             $nombre = $_POST['nombre'];
             $id_categoria = $_POST['categoria'];
@@ -70,7 +79,7 @@ class ProductoController {
 
             $this->model->updateProducto($id, $nombre, $id_categoria, $precio, $stock, $img);
 
-            //header('Location: ' . BASE_URL . 'productos');
+            //header('Location: ' . BASE_URL . 'productos'); Este header por alguna razon que no comprendo no anda
         }
     }
 }

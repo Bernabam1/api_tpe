@@ -1,7 +1,7 @@
 <?php
 
 class CategoriaView {
-    public function showCategorias($categorias) {
+    public function showCategorias($categorias, $isAdmin) {
         
         // NOTA: el template va a poder acceder a todas las variables y constantes que tienen alcance en esta funcion
 
@@ -13,7 +13,7 @@ class CategoriaView {
         require 'templates/error.phtml';
     }
 
-    public function showModificarCategoria($categoria){
+    public function showModificarCategoria($categoria, $isAdmin){
         require 'templates/form_modificar_categoria.phtml';
     }
 }

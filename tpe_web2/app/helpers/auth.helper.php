@@ -15,6 +15,7 @@ class AuthHelper {
     }
 
     public static function isAdmin(){
+        AuthHelper::init();
         return !empty($_SESSION['id']);
     }
 

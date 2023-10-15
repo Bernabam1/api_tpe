@@ -12,13 +12,15 @@ class CategoriaController {
     }
 
     public function showCategorias(){
+        $isAdmin = AuthHelper::isAdmin();
+
         //le pido las categorias al controller
 
         $categorias = $this->model->getCategorias();
 
         // muestro las categorias que vienen pero desde la vista
 
-        $this->view->showCategorias($categorias);
+        $this->view->showCategorias($categorias, $isAdmin);
     }
 
     public function addCategoria(){
@@ -46,10 +48,11 @@ class CategoriaController {
     }
 
     public function modificarCategoria($id){
+        $isAdmin = AuthHelper::isAdmin();
 
         $categoria = $this->model->getCategoriaById($id); // Me quedo con EL objeto
 
-        $this->view->showModificarCategoria($categoria);
+        $this->view->showModificarCategoria($categoria, $isAdmin);
 
         if(isset($_POST['nombre'])) {
             $nombre = $_POST['nombre'];

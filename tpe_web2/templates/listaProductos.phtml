@@ -1,6 +1,8 @@
 <?php require 'templates/header.phtml' ?>
 
-<?php require 'templates/form_alta_producto.phtml' ?>
+<?php if ($isAdmin) { 
+    require 'templates/form_alta_producto.phtml';
+} ?>
 
 <ul class="list-group">
 <?php foreach($productos as $producto){ ?>
@@ -9,8 +11,12 @@
         <?php echo $producto->nombre ?> | $<?php echo $producto->precio ?></li>
         </div>
         <div class="actions">
-            <a href="modificarProducto/<?php echo $producto->id_producto ?>" type = "button" class="btn btn-success ml-auto">Modificar</a>
-            <a href="eliminarProducto/<?php echo $producto->id_producto ?>" type = "button" class="btn btn-danger ml-auto">Eliminar</a>
+        <?php if ($isAdmin) { ?>
+                <a href="modificarProducto/<?php echo $producto->id_producto ?>" type = "button" class="btn btn-success ml-auto">Modificar</a>
+                <a href="eliminarProducto/<?php echo $producto->id_producto ?>" type = "button" class="btn btn-danger ml-auto">Eliminar</a>
+            <?php } else { ?>
+                <a href="verProducto/<?php echo $producto->id_producto ?>" type = "button" class="btn btn-success ml-auto">Ver Producto</a>
+            <?php } ?>
         </div>
     </li>
 <?php } ?>

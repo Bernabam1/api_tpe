@@ -1,7 +1,7 @@
 <?php
 
 class AboutView {
-    public function showAbout() {
+    public function showAbout($isAdmin) {
         require 'templates/about.phtml';
     }
 }

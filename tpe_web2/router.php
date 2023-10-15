@@ -36,6 +36,10 @@ switch ($params[0]) {
         $controller = new ProductoController();
         $controller -> addProducto();
         break;
+    case 'verProducto':
+        $controller = new ProductoController();
+        $controller -> verProducto($params[1]); // Del explode trae el ID
+        break;
     case 'eliminarProducto':
         $controller = new ProductoController();
         $controller -> removeProducto($params[1]); // Del explode trae el ID
