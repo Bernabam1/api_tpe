@@ -1,6 +1,5 @@
 <?php
     class db {
-
         private $host = "localhost";
         private $dbname = "db_productos";
         private $user = "root";
@@ -15,6 +14,4 @@
             }
         }
     }
-
-
 ?>

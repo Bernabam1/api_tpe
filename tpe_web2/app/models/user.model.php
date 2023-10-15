@@ -1,10 +1,11 @@
 <?php
+require_once './config/config.php';
 
 class UserModel {
     private $db;
 
     public function __construct(){
-        require_once './config/config.php';
+        
         $conn = new db();
         $this->db = $conn->connection();
     }

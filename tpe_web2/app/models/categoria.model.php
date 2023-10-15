@@ -1,10 +1,11 @@
 <?php
+require_once './config/config.php';
 
 class CategoriaModel {
     private $db;
 
     function __construct() {
-        require_once './config/config.php';
+        
         $conn = new db();
         $this->db = $conn->connection();
     }
