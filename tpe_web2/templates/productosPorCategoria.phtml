@@ -5,20 +5,20 @@
 } ?>
 
 <ul class="list-group">
-<?php foreach($productos as $producto){ ?>
-    <?php if($producto->id_categoria == $id){?>
-    <li class="list-group-item producto-acciones">
-        <div>
-        <?php echo $producto->nombre ?> | $<?php echo $producto->precio ?></li>
-        </div>
-        <div class="actions">
-            <a href="verProducto/<?php echo $producto->id_producto ?>" type = "button" class="btn btn-success ml-auto">Ver Producto</a>         
-        </div>
-    </li>
-    <?php 
-    }
-} ?>
+    <?php foreach ($productos as $producto) { ?>
+        <?php if ($producto->id_categoria == $id) { ?>
+            <li class="list-group-item producto-acciones">
+                <div class="product-info">
+                    <div>
+                        <?php echo $producto->nombre ?> | $<?php echo $producto->precio ?>
+                    </div>
+                    <div class="actions">
+                        <a href="verProducto/<?php echo $producto->id_producto ?>" type="button" class="btn btn-success">Ver Producto</a>
+                    </div>
+                </div>
+            </li>
+        <?php } ?>
+    <?php } ?>
 </ul>
-<a href="categorias/" class="btn btn-secondary mt-2">Ver categorías</a>
 
 <?php require 'templates/footer.phtml' ?>

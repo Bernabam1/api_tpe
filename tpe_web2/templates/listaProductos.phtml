@@ -7,16 +7,18 @@
 <ul class="list-group">
 <?php foreach($productos as $producto){ ?>
     <li class="list-group-item producto-acciones">
-        <div>
-        <?php echo $producto->nombre ?> | $<?php echo $producto->precio ?></li>
-        </div>
-        <div class="actions">
-        <?php if ($isAdmin) { ?>
-                <a href="modificarProducto/<?php echo $producto->id_producto ?>" type = "button" class="btn btn-success ml-auto">Modificar</a>
-                <a href="eliminarProducto/<?php echo $producto->id_producto ?>" type = "button" class="btn btn-danger ml-auto">Eliminar</a>
-            <?php } else { ?>
-                <a href="verProducto/<?php echo $producto->id_producto ?>" type = "button" class="btn btn-success ml-auto">Ver Producto</a>
-            <?php } ?>           
+        <div class="product-info">
+            <div>
+                <?php echo $producto->nombre ?> | $<?php echo $producto->precio ?>
+            </div>
+            <div class="actions">
+                <?php if ($isAdmin) { ?>
+                    <a href="modificarProducto/<?php echo $producto->id_producto ?>" type="button" class="btn btn-success">Modificar</a>
+                    <a href="eliminarProducto/<?php echo $producto->id_producto ?>" type="button" class="btn btn-danger">Eliminar</a>
+                <?php } else { ?>
+                    <a href="verProducto/<?php echo $producto->id_producto ?>" type="button" class="btn btn-success">Ver Producto</a>
+                <?php } ?>           
+            </div>
         </div>
     </li>
 <?php } ?>
@@ -24,3 +26,4 @@
 <a href="categorias/" class="btn btn-secondary mt-2">Ver categorías</a>
 
 <?php require 'templates/footer.phtml' ?>
+
