@@ -1,14 +1,17 @@
 <?php
 require_once './app/models/categoria.model.php';
 require_once './app/views/categoria.view.php';
+require_once './app/models/producto.model.php';
 
 class CategoriaController {
     private $model;
     private $view;
+    private $prodModel;
 
     public function __construct() {
         $this->model = new CategoriaModel();
         $this->view = new CategoriaView();
+        $this->prodModel = new ProductoModel();
     }
 
     public function showCategorias(){
@@ -23,8 +26,17 @@ class CategoriaController {
         $this->view->showCategorias($categorias, $isAdmin);
     }
 
+    public function verCategoria($id){
+        $isAdmin = AuthHelper::isAdmin();
+
+        $categoria = $this->model->getCategoriaById($id);
+        $productos = $this->prodModel->getProductos();
+
+        $this->view->showCategoria($id, $categoria, $productos, $isAdmin);
+
+    }
+
     public function addCategoria(){
-        // Falta validacion isset?
 
         // Agarro lo que viene del form y lo guardo en variables
         $nombre = $_POST['nombre'];

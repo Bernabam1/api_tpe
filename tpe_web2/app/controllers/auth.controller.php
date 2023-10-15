@@ -13,7 +13,9 @@ class AuthController {
     }
 
     public function showLogin() {
-        $this->view->showLogin();
+        $isAdmin = AuthHelper::isAdmin();
+        $error=null;
+        $this->view->showLogin($error, $isAdmin);
     }
 
     public function auth() {

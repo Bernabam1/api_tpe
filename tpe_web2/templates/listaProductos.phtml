@@ -16,11 +16,11 @@
                 <a href="eliminarProducto/<?php echo $producto->id_producto ?>" type = "button" class="btn btn-danger ml-auto">Eliminar</a>
             <?php } else { ?>
                 <a href="verProducto/<?php echo $producto->id_producto ?>" type = "button" class="btn btn-success ml-auto">Ver Producto</a>
-            <?php } ?>
+            <?php } ?>           
         </div>
     </li>
 <?php } ?>
 </ul>
-
+<a href="categorias/" class="btn btn-secondary mt-2">Ver categorías</a>
 
 <?php require 'templates/footer.phtml' ?>

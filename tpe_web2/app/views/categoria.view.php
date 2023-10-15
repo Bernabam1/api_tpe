@@ -16,4 +16,8 @@ class CategoriaView {
     public function showModificarCategoria($categoria, $isAdmin){
         require 'templates/form_modificar_categoria.phtml';
     }
+
+    public function showCategoria($id, $categoria, $productos, $isAdmin){
+        require 'templates/productosPorCategoria.phtml';
+    }
 }

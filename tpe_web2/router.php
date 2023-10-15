@@ -6,25 +6,11 @@ require_once './app/controllers/categoria.controller.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
-$action = 'productos'; // accion por defecto despues tendria q ser categorias
+$action = 'productos';
 if (!empty( $_GET['action'])) {
     $action = $_GET['action'];
 }
 
-
-// productos        ->      getProductos();
-// agregar          ->      addProducto();
-// eliminar/:ID     ->      removeProducto($id);
-// modificar/:ID    ->      modificarProducto($id);
-
-// about ->             aboutController->showAbout();
-// login ->             authContoller->showLogin();
-// logout ->            authContoller->logout();
-// auth                 authContoller->auth(); // toma los datos del post y autentica al usuario
-
-
-
-// parsea la accion para separar accion real de parametros
 $params = explode('/', $action);
 
 switch ($params[0]) {
@@ -55,6 +41,10 @@ switch ($params[0]) {
     case 'agregarCategoria':
         $controller = new CategoriaController();
         $controller -> addCategoria();
+        break;
+    case 'verCategoria':
+        $controller = new CategoriaController();
+        $controller -> verCategoria($params[1]);
         break;
     case 'eliminarCategoria':
         $controller = new CategoriaController();
