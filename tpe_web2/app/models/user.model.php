@@ -3,8 +3,10 @@
 class UserModel {
     private $db;
 
-    function __construct() {
-        $this->db = new PDO('mysql:host=localhost;dbname=db_productos;charset=utf8', 'root', '');
+    public function __construct(){
+        require_once './config/config.php';
+        $conn = new db();
+        $this->db = $conn->connection();
     }
 
     public function getByUsername($username) {

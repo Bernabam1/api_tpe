@@ -4,7 +4,9 @@ class ProductoModel {
     private $db;
 
     function __construct() {
-        $this->db = new PDO('mysql:host=localhost;dbname=db_productos;charset=utf8', 'root', '');
+        require_once './config/config.php';
+        $conn = new db();
+        $this->db = $conn->connection();
     }
 
     function getProductos(){
