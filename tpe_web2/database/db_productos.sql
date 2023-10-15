@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-09-2023 a las 21:50:40
+-- Tiempo de generación: 15-10-2023 a las 22:30:50
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `tpe`
+-- Base de datos: `db_productos`
 --
 
 -- --------------------------------------------------------
@@ -31,18 +31,19 @@ CREATE TABLE `categorias` (
   `id_categoria` int(11) NOT NULL,
   `nombre` varchar(45) NOT NULL,
   `descripcion` varchar(110) NOT NULL,
-  `imagen` varchar(110) NOT NULL,
-  `color` varchar(45) NOT NULL
+  `imagen` varchar(110) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `categorias`
 --
 
-INSERT INTO `categorias` (`id_categoria`, `nombre`, `descripcion`, `imagen`, `color`) VALUES
-(100, 'Fútbol', 'Productos de fútbol', 'www.ejemplo.com/img-futbol.png', 'Verde'),
-(101, 'Básquet', 'Productos de Básquet', 'www.ejemplo.com/img-basquet.png', 'Naranja'),
-(102, 'Voley', 'Productos de Voley', 'www.imagen.com/img-voley.png', 'Celeste');
+INSERT INTO `categorias` (`id_categoria`, `nombre`, `descripcion`, `imagen`) VALUES
+(100, 'Fútbol', 'Productos de fútbol', 'www.ejemplo.com/img-futbol.png'),
+(101, 'Básquet', 'Productos de Básquet', 'www.ejemplo.com/img-basquet.png'),
+(102, 'Voley', 'Productos de Voley', 'www.imagen.com/img-voley.png'),
+(103, 'Boxeo', 'Productos de Box', 'www.ejemplo.com/img-box.png'),
+(104, 'Categoría Vacía Ejemplo', 'Esta categoría esta vacía por lo cual se puede eliminar', 'URL ejemplo');
 
 -- --------------------------------------------------------
 
@@ -64,9 +65,13 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id_producto`, `nombre`, `id_categoria`, `precio`, `stock`, `imagen`) VALUES
-(1, 'Pelota de Fútbol', 100, 5999, 10, 'www.imagen.com/pelota-de-futbol.png'),
-(2, 'Pelota de Básquet', 101, 8999, 5, 'www.imagen.com/pelota-de-basquet.png'),
-(3, 'Pelota de Voley', 102, 6999, 8, 'www.imagen.com/pelota-de-voley.png');
+(1, 'Pelota de Fútbol', 100, 5999, 10, 'URL proveedor'),
+(2, 'Pelota de Básquet', 101, 8999, 5, 'URL proveedor'),
+(3, 'Pelota de Voley', 102, 6999, 8, 'URL proveedor'),
+(4, 'Guantes de Arquero', 100, 4999, 5, 'URL ejemplo'),
+(5, 'Botines de Fútbol', 100, 10999, 5, 'URL ejemplo'),
+(6, 'Zapatillas de Básquet', 101, 15499, 5, 'URL ejemplo'),
+(7, 'Guantes de Box', 103, 5699, 8, 'URL ejemplo');
 
 --
 -- Índices para tablas volcadas
@@ -93,13 +98,13 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas
