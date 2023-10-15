@@ -36,7 +36,6 @@ class ProductoController {
 
 
     public function addProducto(){
-        // Falta validacion
 
         // Agarro lo que viene del form y lo guardo en variables
         $nombre = $_POST['nombre'];
