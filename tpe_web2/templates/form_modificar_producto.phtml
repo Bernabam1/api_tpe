@@ -1,7 +1,7 @@
 
 <?php require_once 'templates/header.phtml'; ?>
 
-<form action="modificarProducto/<?php echo $producto->id_producto; ?>" method="POST" class="my-4">
+<form action="actualizarProducto/<?php echo $producto->id_producto; ?>" method="POST" class="my-4">
     <div class="row">
         <div class="col-8">
             <div class="form-group">
@@ -52,6 +52,5 @@
 
     <button type="submit" class="btn btn-primary mt-2">Modificar</button>
 </form>
-
 
 <?php require_once 'templates/footer.phtml'; ?>

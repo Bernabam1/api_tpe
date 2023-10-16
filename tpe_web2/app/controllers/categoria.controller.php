@@ -30,9 +30,9 @@ class CategoriaController {
         $isAdmin = AuthHelper::isAdmin();
 
         $categoria = $this->model->getCategoriaById($id);
-        $productos = $this->prodModel->getProductos(); // Acá capaz q va un getProductosPorCategoría?
+        $productos = $this->prodModel->getProductos(); 
 
-        if (empty($productos)){ // Tengo que chequear otra cosa, esto viene con datos
+        if (empty($productos)){
             $this->view->showError('No hay productos en esta categoría', $isAdmin);
         } else{
             $this->view->showCategoria($id, $categoria, $productos, $isAdmin);
@@ -85,7 +85,7 @@ class CategoriaController {
             $img = $_POST['img'];
 
             $this->model->updateCategoria($id, $nombre, $descripcion, $img);
-            header('Location: ' . BASE_URL . 'categorias'); //No puedo volver a la pagina porque esto rompe. Modifica bien pero rompe esto
+            header('Location: ' . BASE_URL . 'categorias');
         }
     }
 

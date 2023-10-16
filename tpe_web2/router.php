@@ -34,6 +34,10 @@ switch ($params[0]) {
         $controller = new ProductoController();
         $controller -> modificarProducto($params[1]); // El param en la pos 1 es el id del producto
         break;
+    case 'actualizarProducto': // actualizar
+        $controller = new ProductoController();
+        $controller -> actualizarProducto($params[1]); // El param en la pos 1 es el id del producto
+        break;
     case 'categorias':
         $controller = new CategoriaController();
         $controller -> showCategorias();

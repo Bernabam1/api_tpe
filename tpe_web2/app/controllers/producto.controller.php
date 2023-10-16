@@ -65,10 +65,13 @@ class ProductoController {
         $isAdmin = AuthHelper::isAdmin();
 
         $producto = $this->model->getProductoById($id); // Me quedo con EL objeto
+       
         $categorias = $this->catModel->getCategorias();
 
         $this->view->showModificarProducto($producto, $categorias, $isAdmin);
+    }
 
+    public function actualizarProducto($id){
         if(isset($_POST['nombre'])) {
             $nombre = $_POST['nombre'];
             $id_categoria = $_POST['categoria'];
@@ -77,9 +80,7 @@ class ProductoController {
             $img = $_POST['img'];
 
             $this->model->updateProducto($id, $nombre, $id_categoria, $precio, $stock, $img);
-
-            header('Location: ' . BASE_URL . 'productos'); //Este header por alguna razon que no comprendo no anda
-            die();
+            header('Location: ' . BASE_URL . 'productos');
         } 
     }
 }
