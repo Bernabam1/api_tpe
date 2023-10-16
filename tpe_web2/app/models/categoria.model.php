@@ -1,15 +1,8 @@
 <?php
 require_once 'Model.php';
-//require_once './config/config.php';
 
 class CategoriaModel extends Model{
-    // private $db;
-
-    // function __construct() {
-        
-    //     $conn = new db();
-    //     $this->db = $conn->connection();
-    // }
+    
 
     function getCategorias(){
     
