@@ -85,7 +85,7 @@ class CategoriaController {
             $img = $_POST['img'];
 
             $this->model->updateCategoria($id, $nombre, $descripcion, $img);
-            //header('Location: ' . BASE_URL); No puedo volver a la pagina porque esto rompe. Modifica bien pero rompe esto
+            header('Location: ' . BASE_URL . 'categorias'); //No puedo volver a la pagina porque esto rompe. Modifica bien pero rompe esto
         }
     }
 

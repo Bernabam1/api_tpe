@@ -71,7 +71,6 @@ class ProductoController {
 
         if(isset($_POST['nombre'])) {
             $nombre = $_POST['nombre'];
-            var_dump($nombre);
             $id_categoria = $_POST['categoria'];
             $precio = $_POST['precio'];
             $stock = $_POST['stock'];
@@ -80,6 +79,7 @@ class ProductoController {
             $this->model->updateProducto($id, $nombre, $id_categoria, $precio, $stock, $img);
 
             header('Location: ' . BASE_URL . 'productos'); //Este header por alguna razon que no comprendo no anda
+            die();
         } 
     }
 }

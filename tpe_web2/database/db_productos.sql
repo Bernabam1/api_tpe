@@ -90,7 +90,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `username`, `password`) VALUES
-(1, 'webadmin', '$2y$10$dq1Z136F8z10DowA6R0jOOagNxyWGyF633WCD7K4djhpxya/Jqkv2');
+(1, 'webadmin', '$2a$12$/rALEUFP7kFArSCQMw2P0ePrJmRHlXu.MGyhPPNXVgg2sQ9kIDEJq');
 
 --
 -- Índices para tablas volcadas
