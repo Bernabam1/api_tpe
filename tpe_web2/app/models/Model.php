@@ -5,14 +5,15 @@
         protected $db;
 
         public function __construct() {
-            $this->db = new PDO("mysql:host=".MYSQL_HOST .";dbname=".MYSQL_DB.";charset=utf8", MYSQL_USER, MYSQL_PASS);
+            $this->db = new PDO("mysql:host=". MYSQL_HOST .";charset=utf8", MYSQL_USER, MYSQL_PASS); //";dbname=". MYSQL_DB . -- Si dejo este nombre falla la PDO
             $this->_deploy();
         }
 
-        private function _deploy() {
-            $query = $this->db->query('SHOW TABLES');
-            $tables = $query->fetchAll();
-            if(count($tables) == 0) {
+        function _deploy() {
+            // $query = $this->db->query('SHOW TABLES'); -- Si no tengo el dbname esta query no anda
+            //$tables = $query->fetchAll();
+            if(true/*count($tables) == 0*/) { // Si no anda la query no entra el if
+
                 $sql =<<<END
 
                 CREATE DATABASE IF NOT EXISTS `db_productos` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
