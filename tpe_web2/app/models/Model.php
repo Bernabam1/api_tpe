@@ -15,6 +15,9 @@
             if(count($tables) == 0) {
                 $sql =<<<END
 
+                CREATE DATABASE IF NOT EXISTS `db_productos` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+                USE `db_productos`;
+
                 CREATE TABLE `categorias` (
                   `id_categoria` int(11) NOT NULL,
                   `nombre` varchar(45) NOT NULL,
