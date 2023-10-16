@@ -1,24 +1,21 @@
 <?php
-require_once './config/config.php';
+require_once 'Model.php';
+//require_once './config/config.php';
 
-class CategoriaModel {
-    private $db;
+class CategoriaModel extends Model{
+    // private $db;
 
-    function __construct() {
+    // function __construct() {
         
-        $conn = new db();
-        $this->db = $conn->connection();
-    }
+    //     $conn = new db();
+    //     $this->db = $conn->connection();
+    // }
 
     function getCategorias(){
-    
-        // 2. Ejecuto consulta SQL --> 'SELECT * FROM categorias'
-        // Para PDO --> Dos pasos: prepare y execute
     
         $query = $this->db->prepare('SELECT * FROM categorias');
         $query->execute();
     
-        // 3. Obtener los datos para procesarlos
         $categorias = $query->fetchAll(PDO::FETCH_OBJ); // Devuelve un arreglo con todos los productos (para uno especifico uso un fetch q devuelve un solo registro)
     
         return $categorias; 

@@ -1,14 +1,9 @@
 <?php
-require_once './config/config.php';
+require_once 'Model.php';
+//require_once './config/config.php';
 
-class UserModel {
-    private $db;
+class UserModel extends Model{
 
-    public function __construct(){
-        
-        $conn = new db();
-        $this->db = $conn->connection();
-    }
 
     public function getByUsername($username) {
         $query = $this->db->prepare('SELECT * FROM usuarios WHERE username = ?');
