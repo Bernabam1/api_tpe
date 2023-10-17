@@ -12,7 +12,7 @@
         function _deploy() {
             // $query = $this->db->query('SHOW TABLES'); -- Si no tengo el dbname esta query no anda
             //$tables = $query->fetchAll();
-            if(true/*count($tables) == 0*/) { // Si no anda la query no entra el if
+            if(true/*count($tables) == 0*/) { // Si no anda la query no entra el if, ya se que es una mala práctica pero lo dejo así para que se cree la base como dice el requisito.
 
                 $sql =<<<END
 
