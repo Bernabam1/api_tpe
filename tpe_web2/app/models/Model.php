@@ -1,20 +1,28 @@
-<?php 
-    require_once "./database/config.php";
+<?php
+require_once "./database/config.php";
 
-    class Model {
-        protected $db;
+class Model
+{
+  protected $db;
 
-        public function __construct() {
-            $this->db = new PDO("mysql:host=". MYSQL_HOST .";charset=utf8", MYSQL_USER, MYSQL_PASS); //";dbname=". MYSQL_DB . -- Si dejo este nombre falla la PDO
-            $this->_deploy();
-        }
+  public function __construct()
+  {
+    $this->db = new PDO("mysql:host=" . MYSQL_HOST . ";charset=utf8", MYSQL_USER, MYSQL_PASS); //";dbname=". MYSQL_DB . -- Si dejo este nombre falla la PDO, me tira unknown db
+    $this->deploy();
+  }
 
-        function _deploy() {
-            // $query = $this->db->query('SHOW TABLES'); -- Si no tengo el dbname esta query no anda
-            //$tables = $query->fetchAll();
-            if(true/*count($tables) == 0*/) { // Si no anda la query no entra el if, ya se que es una mala práctica pero lo dejo así para que se cree la base como dice el requisito.
+  function deploy()
+  {
+    // Chequeo si existe db_productos
+    $query = $this->db->query('SHOW DATABASES LIKE "db_productos"'); // Este resultado vuelve en una tabla
+    $existe = $query->rowCount() > 0; // por eso acá chequeo por rows
 
-                $sql =<<<END
+    if (!$existe) {
+      // Si la base de datos no existe la creo
+      $this->db->exec('CREATE DATABASE db_productos'); //Exec de SQL para crear la base
+    }
+
+    $sql = <<<END
 
                 CREATE DATABASE IF NOT EXISTS `db_productos` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
                 --
@@ -141,8 +149,6 @@
                   ADD CONSTRAINT `FK_id_categoria` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`);
                 COMMIT; 
             END;
-            $this->db->query($sql);
-            }
-        }
-    
-    }
+    $this->db->query($sql);
+  }
+}

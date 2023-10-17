@@ -1,6 +1,5 @@
 <?php
-require_once 'Model.php';
-//require_once './config/config.php';
+require_once 'model.php';
 
 class UserModel extends Model{
 
