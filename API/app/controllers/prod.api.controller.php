@@ -21,6 +21,9 @@
                 if (!empty($producto)){
                     return $this->view->response($producto, 200);
                 }
+                else{
+                    return $this->view->response("Producto no encontrado", 404);
+                }
             }
         }
 
@@ -33,7 +36,7 @@
                 $this->view->response("Producto id=$producto_id eliminado con éxito", 200);
             }
             else 
-                $this->view->response("Task id=$producto_id not found", 404);
+                $this->view->response("Producto id=$producto_id no encontrado", 404);
         }
     
     }
