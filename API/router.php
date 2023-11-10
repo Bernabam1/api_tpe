@@ -2,6 +2,7 @@
 require_once 'libs/Router.php';
 require_once 'app/controllers/prod.api.controller.php';
 require_once 'app/controllers/cat.api.controller.php';
+require_once 'app/controllers/user.api.controller.php';
 
 $router = new Router();
 
@@ -20,5 +21,8 @@ $router -> addRoute('categorias/:ID', 'GET', 'CatApiController', 'get');
 $router -> addRoute('categorias', 'POST', 'CatApiController', 'addCategoria');
 $router -> addRoute('categorias/:ID', 'PUT', 'CatApiController', 'updateCategoria');
 $router -> addRoute('categorias/:ID', 'DELETE', 'CatApiController', 'deleteCategoria');
+
+// Router usuarios
+$router -> addRoute('user/token', 'GET', 'UserApiController', 'getToken');
 
 $router -> route($_GET['resource'], $_SERVER['REQUEST_METHOD']); //Le paso el resource como esta en el htacces

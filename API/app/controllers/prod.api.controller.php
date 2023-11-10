@@ -8,7 +8,6 @@
         function __construct(){
             parent::__construct();
             $this->model = new ProductoModel();
-            $this->view = new APIview();
         }
 
         function get($params = []){
