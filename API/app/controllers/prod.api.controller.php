@@ -13,6 +13,7 @@
 
         function get($params = []){
             if(empty($params)){
+
                 $productos = $this->model->getProductos();
                 return $this->view->response($productos, 200);
             }
@@ -73,5 +74,5 @@
             else 
                 $this->view->response("Producto id=$producto_id no encontrado", 404); // Si no existe
         }
-        
+
     }
