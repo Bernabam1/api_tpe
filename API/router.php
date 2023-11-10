@@ -8,6 +8,7 @@ $router = new Router();
 $router -> addRoute('productos', 'GET', 'ProdApiController', 'get');
 $router -> addRoute('productos/:ID', 'GET', 'ProdApiController', 'get');
 $router -> addRoute('productos', 'POST', 'ProdApiController', 'addProducto');
+$router -> addRoute('productos/:ID', 'PUT', 'ProdApiController', 'updateProducto');
 $router -> addRoute('productos/:ID', 'DELETE', 'ProdApiController', 'deleteProducto');
 
 $router -> route($_GET['resource'], $_SERVER['REQUEST_METHOD']); //Le paso el resource como esta en el htacces
