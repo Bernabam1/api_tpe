@@ -2,7 +2,7 @@
 
 ## Integrantes:
 
-- de Haro, Fabián (fa07fa@gmail.com)
+- ~~de Haro, Fabián (fa07fa@gmail.com)~~
 - Michelli, Bernardo Agustín (bernabam@gmail.com)
 
 ## Temática:
