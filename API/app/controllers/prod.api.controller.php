@@ -1,12 +1,12 @@
 <?php
+    require_once 'app/controllers/api.controller.php';
     require_once 'app/models/producto.model.php';
-    require_once 'app/view/api.view.php';
 
-    class ProdApiController {
-        private $view;
+    class ProdApiController extends ApiController{
         private $model;
 
         function __construct(){
+            parent::__construct();
             $this->model = new ProductoModel();
             $this->view = new APIview();
         }
@@ -37,6 +37,20 @@
             }
             else 
                 $this->view->response("Producto id=$producto_id no encontrado", 404);
+        }
+
+        function addProducto($params = []) {
+            $body = $this->getData(); // Desarma el json y genera un objeto
+
+            $nombre = $body->nombre;
+            $id_categoria = $body->id_categoria;
+            $precio = $body->precio;
+            $stock = $body->stock;
+            $imagen = $body->imagen;
+
+            $id = $this->model->insertProducto($nombre, $id_categoria, $precio, $stock, $imagen);
+
+            $this->view->response('El producto se insertó con id=' . $id, 201);
         }
     
     }
