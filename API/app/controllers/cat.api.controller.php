@@ -4,10 +4,12 @@
 
     class CatApiController extends ApiController{
         private $model;
+        private $authHelper;
 
         function __construct(){
             parent::__construct();
             $this->model = new CategoriaModel();
+            $this->authHelper = new AuthHelper();
         }
 
         function get($params = []){
@@ -30,6 +32,12 @@
         }
 
         function deleteCategoria($params = []){
+            $user = $this->authHelper->currentUser();
+            if(!$user){
+                $this->view->response('Unauthorized', 401);
+                return;
+            }
+
             $categoria_id = $params[':ID'];
             $categoria = $this->model->getCategoriaById($categoria_id);
     
@@ -42,6 +50,12 @@
         }
 
         function addCategoria($params = []){
+            $user = $this->authHelper->currentUser();
+            if(!$user){
+                $this->view->response('Unauthorized', 401);
+                return;
+            }
+
             $body = $this->getData(); // Desarma el json y genera un objeto
 
             $nombre = $body->nombre;
@@ -54,6 +68,12 @@
         }
         
         function updateCategoria($params = []){
+            $user = $this->authHelper->currentUser();
+            if(!$user){
+                $this->view->response('Unauthorized', 401);
+                return;
+            }
+            
             $categoria_id = $params[':ID']; // Capturo el id
             $categoria = $this->model->getCategoriaById($categoria_id); 
     
