@@ -13,8 +13,15 @@
         }
 
         function get($params = []){
+
+            $permitidos = ['id_categoria', 'nombre', 'descripcion', 'imagen']; // Los campos permitidos para ordenamiento
+
             $sortField = isset($_GET['sort']) ? $_GET['sort'] : 'id_categoria'; // Toma lo que esta en el sort o el predeterminado
             $sortOrder = isset($_GET['order']) && $_GET['order'] === 'desc' ? 'DESC' : 'ASC'; // Si esta seteado y es descendente -> desc, sino ascendente por defecto
+
+            if (!in_array($sortField, $permitidos)) { // Si lo que hay no se corresponde con un campo permitido corto acá
+                return $this->view->response("Bad Request", 400);
+            }
 
             if(empty($params)){
 

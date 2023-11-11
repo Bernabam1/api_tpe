@@ -14,17 +14,20 @@
         }
 
         function get($params = []){
-
-            $sortField = isset($_GET['sort']) ? $_GET['sort'] : 'id_producto'; // Toma lo que esta en el sort o el predeterminado
-            $sortOrder = isset($_GET['order']) && $_GET['order'] === 'desc' ? 'DESC' : 'ASC'; // Si esta seteado y es descendente -> desc, sino ascendente por defecto
-
+            
             if(empty($params)){
+
+                $permitidos = ['id_producto', 'nombre', 'id_categoria', 'precio', 'stock', 'imagen']; // Los campos permitidos para ordenamiento
+
+                $sortField = isset($_GET['sort']) ? $_GET['sort'] : 'id_producto'; // Toma lo que esta en el sort o el predeterminado
+                $sortOrder = isset($_GET['order']) && $_GET['order'] === 'desc' ? 'DESC' : 'ASC'; // Si esta seteado y es descendente -> desc, sino ascendente por defecto
+
+                if (!in_array($sortField, $permitidos)) { // Si lo que hay no se corresponde con un campo permitido corto acá
+                    return $this->view->response("Bad Request", 400);
+                }
 
                 $productos = $this->model->getProductos($sortField, $sortOrder); // Le agrego al get los sorts
                 return $this->view->response($productos, 200);
-
-                //$productos = $this->model->getProductos(); ESTOS SON LOS Q ESTABAN FUNCIONANDO PRE SORT
-                //return $this->view->response($productos, 200);
             }
             else{
                 $producto = $this->model->getProductoById($params [":ID"]);
