@@ -33,7 +33,6 @@ class CategoriaModel extends Model{
     }
     
     function deleteCategoria($id){
-        // chequear que no exista un producto que tenga esta categoria a eliminar
 
         $queryProducto = $this->db->prepare('SELECT * FROM producto WHERE id_categoria = ?');
         $queryProducto->execute([$id]);

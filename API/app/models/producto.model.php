@@ -8,7 +8,7 @@ class ProductoModel extends Model {
         $query = $this->db->prepare("SELECT * FROM producto ORDER BY $sortField $sortOrder");
         $query->execute();
 
-        // 3. Obtener los datos para procesarlos
+        // Obtener los datos para procesarlos
         $productos = $query->fetchAll(PDO::FETCH_OBJ); // Devuelve un arreglo con todos los productos (para uno especifico uso un fetch q devuelve un solo registro)
 
         return $productos; 
@@ -19,7 +19,6 @@ class ProductoModel extends Model {
         $query = $this->db->prepare('SELECT * FROM producto WHERE id_producto = ?');
         $query->execute([$id]);
 
-        // 3. Obtener los datos para procesarlos
         $producto = $query->fetch(PDO::FETCH_OBJ); // Devuelve un arreglo con todos los productos (para uno especifico uso un fetch q devuelve un solo registro)
 
         return $producto;
