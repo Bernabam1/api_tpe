@@ -105,4 +105,16 @@
                 $this->view->response("Producto id=$producto_id no encontrado", 404); // Si no existe
         }
 
+        function getProductosByCategoria($params = []) {
+            $categoria_id = $params[':ID'];
+
+            $productos = $this->model->getProductosByCategoria($categoria_id);
+        
+            if (!empty($productos)) {
+                return $this->view->response($productos, 200);
+            } else {
+                return $this->view->response("No se encontraron productos en la categoría $categoria_id", 404);
+            }
+        }
+
     }

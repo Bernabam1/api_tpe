@@ -45,13 +45,11 @@ class ProductoModel extends Model {
         $query->execute([$nombre, $id_categoria, $precio, $stock, $img, $id]);
     }
 
-    function getRooms($sort_by, $order, $page, $per_page) {
-        $limit = $per_page;
-        $offset = ($page - 1) * $per_page;
-        $query = "SELECT * FROM habitacion ORDER BY $sort_by $order LIMIT $limit OFFSET $offset";
-        $data = $this->db->prepare($query);
-        $data->execute();
-        $rooms = $data->fetchAll(PDO::FETCH_OBJ);
-        return $rooms;
+    function getProductosByCategoria($categoria_id) {
+
+        $query = $this->db->prepare("SELECT * FROM producto WHERE id_categoria = ?");
+        $query->execute([$categoria_id]);
+    
+        return $query->fetchAll(PDO::FETCH_OBJ);
     }
 }
