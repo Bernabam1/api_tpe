@@ -3,9 +3,9 @@ require_once 'model.php';
 
 class ProductoModel extends Model {
 
-    function getProductos(){
+    function getProductos($sortField, $sortOrder){
 
-        $query = $this->db->prepare('SELECT * FROM producto');
+        $query = $this->db->prepare("SELECT * FROM producto ORDER BY $sortField $sortOrder");
         $query->execute();
 
         // 3. Obtener los datos para procesarlos
@@ -43,5 +43,15 @@ class ProductoModel extends Model {
     
         $query = $this->db->prepare('UPDATE producto SET nombre = ?, id_categoria = ?, precio = ?, stock = ?, imagen = ? WHERE id_producto = ?');
         $query->execute([$nombre, $id_categoria, $precio, $stock, $img, $id]);
+    }
+
+    function getRooms($sort_by, $order, $page, $per_page) {
+        $limit = $per_page;
+        $offset = ($page - 1) * $per_page;
+        $query = "SELECT * FROM habitacion ORDER BY $sort_by $order LIMIT $limit OFFSET $offset";
+        $data = $this->db->prepare($query);
+        $data->execute();
+        $rooms = $data->fetchAll(PDO::FETCH_OBJ);
+        return $rooms;
     }
 }

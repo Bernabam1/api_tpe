@@ -13,11 +13,14 @@
         }
 
         function get($params = []){
+            $sortField = isset($_GET['sort']) ? $_GET['sort'] : 'id_categoria'; // Toma lo que esta en el sort o el predeterminado
+            $sortOrder = isset($_GET['order']) && $_GET['order'] === 'desc' ? 'DESC' : 'ASC'; // Si esta seteado y es descendente -> desc, sino ascendente por defecto
+
             if(empty($params)){
 
                 if(isset($_GET))
 
-                $categorias = $this->model->getCategorias();
+                $categorias = $this->model->getCategorias($sortField, $sortOrder);
                 return $this->view->response($categorias, 200);
             }
             else{
@@ -73,7 +76,7 @@
                 $this->view->response('Unauthorized', 401);
                 return;
             }
-            
+
             $categoria_id = $params[':ID']; // Capturo el id
             $categoria = $this->model->getCategoriaById($categoria_id); 
     

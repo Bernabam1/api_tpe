@@ -4,9 +4,9 @@ require_once 'model.php';
 class CategoriaModel extends Model{
     
 
-    function getCategorias(){
+    function getCategorias($sortField, $sortOrder){
     
-        $query = $this->db->prepare('SELECT * FROM categorias');
+        $query = $this->db->prepare("SELECT * FROM categorias ORDER BY $sortField $sortOrder");
         $query->execute();
     
         $categorias = $query->fetchAll(PDO::FETCH_OBJ); // Devuelve un arreglo con todos los productos (para uno especifico uso un fetch q devuelve un solo registro)
