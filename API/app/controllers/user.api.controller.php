@@ -52,19 +52,6 @@
                     $this->view->response("El usuario o la contraseña son incorrectos", 401);
                 }
             }
-            
-
-            /*$user = $this->model->getByNombreUsuario($nombreUsuario);
-                if (isset($user)) {
-                if (password_verify($pass, $user->password)) {
-                    $userdata = ["id_usuario" => $user->id_usuario, "nombre_usuario" => $user->nombre_usuario];
-                    $token = $this->authHelper->createToken($userdata);
-                    $this->view->response($token, 200);
-                    return;
-                    }
-                }
-                $this->view->response('El usuario o contraseña son incorrectos.', 401);
-            }*/ 
         }
 
     }

@@ -1,18 +1,22 @@
 <?php
     require_once 'app/controllers/api.controller.php';
     require_once 'app/models/producto.model.php';
+    require_once 'app/helpers/auth.api.helper.php';
 
     class ProdApiController extends ApiController{
         private $model;
+        private $authHelper;
 
         function __construct(){
             parent::__construct();
             $this->model = new ProductoModel();
+            $this->authHelper = new AuthHelper();
         }
 
         function get($params = []){
-            if(empty($params)){
 
+
+            if(empty($params)){
                 $productos = $this->model->getProductos();
                 return $this->view->response($productos, 200);
             }
@@ -28,6 +32,12 @@
         }
 
         function deleteProducto($params = []){
+            $user = $this->authHelper->currentUser();
+            if(!$user){
+                $this->view->response('Unauthorized', 401);
+                return;
+            }
+
             $producto_id = $params[':ID'];
             $producto = $this->model->getProductoById($producto_id);
     
@@ -40,6 +50,12 @@
         }
 
         function addProducto($params = []){
+            $user = $this->authHelper->currentUser();
+            if(!$user){
+                $this->view->response('Unauthorized', 401);
+                return;
+            }
+
             $body = $this->getData(); // Desarma el json y genera un objeto
 
             $nombre = $body->nombre;
@@ -54,6 +70,12 @@
         }
         
         function updateProducto($params = []){
+            $user = $this->authHelper->currentUser();
+            if(!$user){
+                $this->view->response('Unauthorized', 401);
+                return;
+            }
+
             $producto_id = $params[':ID']; // Capturo el id
             $producto = $this->model->getProductoById($producto_id); 
     
