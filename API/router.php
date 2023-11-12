@@ -3,9 +3,11 @@ require_once 'libs/Router.php';
 require_once 'app/controllers/prod.api.controller.php';
 require_once 'app/controllers/cat.api.controller.php';
 require_once 'app/controllers/user.api.controller.php';
+require_once 'app/controllers/not.found.controller.php';
 
 $router = new Router();
 
+$router->setDefaultRoute("NotFoundController", "notFound"); // Controlador, metodo
 
 // Router productos
 // Endpoint - Verbo - Controller - Método HTTP
