@@ -7,7 +7,7 @@ require_once 'app/controllers/not.found.controller.php';
 
 $router = new Router();
 
-$router->setDefaultRoute("NotFoundController", "notFound"); // Controlador, metodo
+$router->setDefaultRoute("NotFoundController", "notFound"); // Controlador, metodo -- Si no esta la ruta especificada en el router, va a esta por defecto
 
 // Router productos
 // Endpoint - Verbo - Controller - Método HTTP
