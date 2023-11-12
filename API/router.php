@@ -10,17 +10,17 @@ $router = new Router();
 // Router productos
 // Endpoint - Verbo - Controller - Método HTTP
 $router -> addRoute('productos', 'GET', 'ProdApiController', 'get');
-$router -> addRoute('productos/:ID', 'GET', 'ProdApiController', 'get');
+$router -> addRoute('producto/:ID', 'GET', 'ProdApiController', 'get');
 $router -> addRoute('productos', 'POST', 'ProdApiController', 'addProducto');
-$router -> addRoute('productos/:ID', 'PUT', 'ProdApiController', 'updateProducto');
-$router -> addRoute('productos/:ID', 'DELETE', 'ProdApiController', 'deleteProducto');
+$router -> addRoute('producto/:ID', 'PUT', 'ProdApiController', 'updateProducto');
+$router -> addRoute('producto/:ID', 'DELETE', 'ProdApiController', 'deleteProducto');
 
 // Router categorias
 $router -> addRoute('categorias', 'GET', 'CatApiController', 'get');
-$router -> addRoute('categorias/:ID', 'GET', 'CatApiController', 'get');
+$router -> addRoute('categoria/:ID', 'GET', 'CatApiController', 'get');
 $router -> addRoute('categorias', 'POST', 'CatApiController', 'addCategoria');
-$router -> addRoute('categorias/:ID', 'PUT', 'CatApiController', 'updateCategoria');
-$router -> addRoute('categorias/:ID', 'DELETE', 'CatApiController', 'deleteCategoria');
+$router -> addRoute('categoria/:ID', 'PUT', 'CatApiController', 'updateCategoria');
+$router -> addRoute('categoria/:ID', 'DELETE', 'CatApiController', 'deleteCategoria');
 
 // Router productos por categoria
 $router->addRoute('productos/categorias/:ID', 'GET', 'ProdApiController', 'getProductosByCategoria');
