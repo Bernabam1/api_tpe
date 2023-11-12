@@ -10,6 +10,8 @@ Michelli, Bernardo Agustín - DNI 35.033.429 - Mail: bernabam@gmail.com
 
 ## **Documentacion:**
 
+---
+
 ### Autenticación por Token
 
 Para realizar modificaciones de tipo POST/PUT/DELETE es necesario realizar una autenticación por token.
@@ -32,6 +34,7 @@ Para realizar modificaciones de tipo POST/PUT/DELETE es necesario realizar una a
 - Obtiene un producto especifico por `:ID`
 
 **Endpoint:** PUT `/producto/:ID`
+- Requiere autenticación.
 - Modifica un producto especifico por `:ID`
 - Se deben pasar los datos por el body de Postman con tipo raw y con el siguiente formato:
 
@@ -46,9 +49,11 @@ Para realizar modificaciones de tipo POST/PUT/DELETE es necesario realizar una a
 ```
 
 **Endpoint:** DELETE `/producto/:ID`
+- Requiere autenticación.
 - Elimina un producto especifico por `:ID`
 
 **Endpoint:** POST `/producto`
+- Requiere autenticación.
 - Agrega un producto a la base de datos de productos, en la última posicion con un ID autoincremental.
 - Se deben pasar los datos por el body de Postman con tipo raw y con el siguiente formato:
 
@@ -64,7 +69,7 @@ Para realizar modificaciones de tipo POST/PUT/DELETE es necesario realizar una a
 
 ---
 
-### Productos
+### Categorías
 
 **Endpoint:** GET `/categorias`
 - Obtiene un listado de todas los categorias disponibles en la base de datos.
@@ -75,6 +80,7 @@ Para realizar modificaciones de tipo POST/PUT/DELETE es necesario realizar una a
 - Obtiene una categoria especifico por `:ID`
 
 **Endpoint:** PUT `/categoria/:ID`
+- Requiere autenticación.
 - Modifica una categoria especifico por `:ID`
 - Se deben pasar los datos por el body de Postman con tipo raw y con el siguiente formato:
 
@@ -87,9 +93,11 @@ Para realizar modificaciones de tipo POST/PUT/DELETE es necesario realizar una a
 ```
 
 **Endpoint:** DELETE `/categoria/:ID`
+- Requiere autenticación.
 - Elimina una categoria especifico por `:ID`
 
 **Endpoint:** POST `/categoria`
+- Requiere autenticación.
 - Agrega un categoria a la base de datos de categorias, en la última posicion con un ID autoincremental.
 - Se deben pasar los datos por el body de Postman con tipo raw y con el siguiente formato:
 
@@ -102,3 +110,8 @@ Para realizar modificaciones de tipo POST/PUT/DELETE es necesario realizar una a
 ```
 
 ---
+
+### Obtener productos filtrados por categoría
+
+**Endpoint:** GET `productos/categoria/:ID`
+- Obtiene todos los productos que pertenecen a una categoria especificada por `:ID`

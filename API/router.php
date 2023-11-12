@@ -25,7 +25,7 @@ $router -> addRoute('categoria/:ID', 'DELETE', 'CatApiController', 'deleteCatego
 $router -> addRoute('categoria', 'POST', 'CatApiController', 'addCategoria');
 
 // Router productos por categoria
-$router->addRoute('productos/categorias/:ID', 'GET', 'ProdApiController', 'getProductosByCategoria');
+$router->addRoute('productos/categoria/:ID', 'GET', 'ProdApiController', 'getProductosByCategoria');
 
 // Router usuarios
 $router -> addRoute('user/token', 'GET', 'UserApiController', 'getToken');
