@@ -13,16 +13,16 @@ $router->setDefaultRoute("NotFoundController", "notFound"); // Controlador, meto
 // Endpoint - Verbo - Controller - Método HTTP
 $router -> addRoute('productos', 'GET', 'ProdApiController', 'get');
 $router -> addRoute('producto/:ID', 'GET', 'ProdApiController', 'get');
-$router -> addRoute('productos', 'POST', 'ProdApiController', 'addProducto');
 $router -> addRoute('producto/:ID', 'PUT', 'ProdApiController', 'updateProducto');
 $router -> addRoute('producto/:ID', 'DELETE', 'ProdApiController', 'deleteProducto');
+$router -> addRoute('producto', 'POST', 'ProdApiController', 'addProducto');
 
 // Router categorias
 $router -> addRoute('categorias', 'GET', 'CatApiController', 'get');
 $router -> addRoute('categoria/:ID', 'GET', 'CatApiController', 'get');
-$router -> addRoute('categorias', 'POST', 'CatApiController', 'addCategoria');
 $router -> addRoute('categoria/:ID', 'PUT', 'CatApiController', 'updateCategoria');
 $router -> addRoute('categoria/:ID', 'DELETE', 'CatApiController', 'deleteCategoria');
+$router -> addRoute('categoria', 'POST', 'CatApiController', 'addCategoria');
 
 // Router productos por categoria
 $router->addRoute('productos/categorias/:ID', 'GET', 'ProdApiController', 'getProductosByCategoria');

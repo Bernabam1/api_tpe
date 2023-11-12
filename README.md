@@ -14,10 +14,32 @@ Para realizar modificaciones de tipo POST/PUT/DELETE es necesario realizar una a
 
 **Endpoint:** `/user/token`
 
-⋅⋅* Se debe realizar una Authorization de tipo **Basic Auth** en Postman con los siguientes datos `Usuario: webadmin` - `Contraseña: admin` , a fin de recibir un token.
-⋅⋅* El mismo se ingresa en la sección de Authorization de Postman bajo el tipo **Bearer Token**, para poder tener acceso a las modificaciones.
+- Se debe realizar una Authorization de tipo **Basic Auth** en Postman con los siguientes datos `Usuario: webadmin` - `Contraseña: admin` , a fin de recibir un token.
+- El mismo se ingresa en la sección de Authorization de Postman bajo el tipo **Bearer Token**, para poder tener acceso a las modificaciones.
 
 **Endpoint:** GET `/productos`
 
-⋅⋅* Obtiene un listado de todos los productos disponibles en la base de datos.
+- Obtiene un listado de todos los productos disponibles en la base de datos.
+- Se puede hacer sort bajo los siguientes campos: `'id_producto', 'nombre', 'id_categoria', 'precio', 'stock', 'imagen'`.
+- Se puede ordernar en direccion ascendente y descedente bajo cualquiera de los campos.
+
+**Endpoint:** GET `/producto/:ID`
+- Obtiene un producto especifico por `:ID`
+
+**Endpoint:** PUT `/producto/:ID`
+- Modifica un producto especifico por `:ID`
+- Se deben pasar los datos por el body de Postman con tipo raw y con el siguiente formato:
+
+<code>
+    {
+        "nombre": "Producto modificado desde la API",
+        "id_categoria": 101,
+        "precio": 1110,
+        "stock": 50,
+        "imagen": "API mod"
+    }
+</code>
+
+**Endpoint:** DELETE `/producto/:ID`
+- Elimina un producto especifico por `:ID`
 
