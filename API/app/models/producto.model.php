@@ -3,13 +3,15 @@ require_once 'model.php';
 
 class ProductoModel extends Model {
 
-    function getProductos($sortField, $sortOrder){
+    function getProductos($sortField, $sortOrder, $page, $perPage){
+        // Paginación
+        $offset = ($page - 1) * $perPage; // Esto hace que la página 1 empiece en 0, la página 2 en $perPage, la página 3 desde 2*$perPage, y así sucesivamente.
 
-        $query = $this->db->prepare("SELECT * FROM producto ORDER BY $sortField $sortOrder");
+        $query = $this->db->prepare("SELECT * FROM producto ORDER BY $sortField $sortOrder LIMIT $perPage; OFFSET $offset"); // Le paso los valores a la query
         $query->execute();
 
         // Obtener los datos para procesarlos
-        $productos = $query->fetchAll(PDO::FETCH_OBJ); // Devuelve un arreglo con todos los productos (para uno especifico uso un fetch q devuelve un solo registro)
+        $productos = $query->fetchAll(PDO::FETCH_OBJ); // Devuelve un arreglo con todos los productos
 
         return $productos; 
     }
@@ -19,7 +21,7 @@ class ProductoModel extends Model {
         $query = $this->db->prepare('SELECT * FROM producto WHERE id_producto = ?');
         $query->execute([$id]);
 
-        $producto = $query->fetch(PDO::FETCH_OBJ); // Devuelve un arreglo con todos los productos (para uno especifico uso un fetch q devuelve un solo registro)
+        $producto = $query->fetch(PDO::FETCH_OBJ); // Devuelve un producto
 
         return $producto;
     }

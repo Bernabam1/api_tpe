@@ -17,6 +17,7 @@
             
             if(empty($params)){
 
+                // Sorting
                 $permitidos = ['id_producto', 'nombre', 'id_categoria', 'precio', 'stock', 'imagen']; // Los campos permitidos para ordenamiento
 
                 $sortField = isset($_GET['sort']) ? $_GET['sort'] : 'id_producto'; // Toma lo que esta en el sort o el predeterminado
@@ -26,7 +27,11 @@
                     return $this->view->response("Bad Request", 400);
                 }
 
-                $productos = $this->model->getProductos($sortField, $sortOrder); // Le agrego al get los sorts
+                //Paginación
+                $page = isset($_GET['page']) ? intval($_GET['page']) : 1; // Toma los valores de la URL y los pasa a numero, si no se proporciona pone 1
+                $perPage = isset($_GET['per_page']) ? intval($_GET['per_page']) : 10; // Toma los valores de la URL y los pasa a numero, si no se proporciona pone 10
+
+                $productos = $this->model->getProductos($sortField, $sortOrder, $page, $perPage); // Le agrego al get los sorts y la paginacion
                 return $this->view->response($productos, 200);
             }
             else{

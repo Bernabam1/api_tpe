@@ -27,6 +27,8 @@ Para realizar modificaciones de tipo POST/PUT/DELETE es necesario realizar una a
 - Obtiene un listado de todos los productos disponibles en la base de datos.
 - Se puede hacer sort bajo los siguientes campos: `'id_producto', 'nombre', 'id_categoria', 'precio', 'stock', 'imagen'`.
 - Se puede ordernar en direccion ascendente y descedente bajo cualquiera de los campos.
+- También se puede detereminar cuantos productos se van a mostrar por página.
+- Ejemplo Endpoint con sort y paginación: `/productos?sort=id_producto&order=asc&page=1&per_page=3`
 
 **Endpoint:** GET `/producto/:ID`
 - Obtiene un producto especifico por `:ID`
