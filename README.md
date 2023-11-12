@@ -30,7 +30,7 @@ Para realizar modificaciones de tipo POST/PUT/DELETE es necesario realizar una a
 - Modifica un producto especifico por `:ID`
 - Se deben pasar los datos por el body de Postman con tipo raw y con el siguiente formato:
 
-<code>
+```
     {
         "nombre": "Producto modificado desde la API",
         "id_categoria": 101,
@@ -38,7 +38,7 @@ Para realizar modificaciones de tipo POST/PUT/DELETE es necesario realizar una a
         "stock": 50,
         "imagen": "API mod"
     }
-</code>
+```
 
 **Endpoint:** DELETE `/producto/:ID`
 - Elimina un producto especifico por `:ID`
