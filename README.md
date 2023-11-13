@@ -12,7 +12,7 @@ Michelli, Bernardo Agustín - DNI 35.033.429 - Mail: bernabam@gmail.com
 
 Para realizar modificaciones de tipo POST/PUT/DELETE es necesario realizar una autenticación por token.
 
-**Endpoint:** `/user/token`
+**Endpoint:** GET `/user/token`
 
 - Se debe realizar una Authorization de tipo **Basic Auth** en Postman con los siguientes datos: 
 `Usuario: webadmin` - `Contraseña: admin`
